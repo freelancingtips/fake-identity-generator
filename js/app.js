@@ -1,68 +1,91 @@
-// ---------------- Back Button ----------------
-document.getElementById("backBtn").addEventListener("click", () => {
-    if (window.history.length > 1) {
-        window.history.back();
-    } else {
-        location.reload(); // fallback if no history
+// Main app: UI bindings and rendering
+
+(function(global) {
+  const utils = global.fakeUtils;
+
+  // DOM elements
+  const detailsContainer = document.getElementById('identityDetails');
+  const generateBtn = document.getElementById('generateBtn');
+  const copyBtn = document.getElementById('copyBtn');
+
+  // Current identity
+  let currentIdentity = null;
+
+  // Render identity to UI
+  function renderIdentity(identity) {
+    const obj = identity.toObject();
+    const html = `
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-user"></i> Full Name</div>
+        <div class="detail-value">${obj.fullName}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-venus-mars"></i> Gender</div>
+        <div class="detail-value">${obj.gender}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-calendar-alt"></i> Date of Birth</div>
+        <div class="detail-value">${obj.dob}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-map-marker-alt"></i> Address</div>
+        <div class="detail-value">${obj.address}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-phone-alt"></i> Phone</div>
+        <div class="detail-value">${obj.phone}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-envelope"></i> Email</div>
+        <div class="detail-value">${obj.email}</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label"><i class="fas fa-id-card"></i> ID Number</div>
+        <div class="detail-value">${obj.idNumber}</div>
+      </div>
+    `;
+    detailsContainer.innerHTML = html;
+  }
+
+  // Generate new identity and update UI
+  function generateNew() {
+    currentIdentity = generateIdentity();
+    renderIdentity(currentIdentity);
+  }
+
+  // Copy all details as formatted text
+  function copyToClipboard() {
+    if (!currentIdentity) {
+      alert('Generate an identity first!');
+      return;
     }
-});
 
-// ---------------- Copy Identity ----------------
-document.getElementById("copyBtn").addEventListener("click", () => {
-    const card = document.getElementById("identityCard");
-    let text = "";
-    card.querySelectorAll("h2, p").forEach(el => {
-        text += el.innerText + "\n";
-    });
+    const obj = currentIdentity.toObject();
+    const text = `
+FULL NAME: ${obj.fullName}
+GENDER: ${obj.gender}
+DATE OF BIRTH: ${obj.dob}
+ADDRESS: ${obj.address}
+PHONE: ${obj.phone}
+EMAIL: ${obj.email}
+ID NUMBER: ${obj.idNumber}
+    `.trim();
+
     navigator.clipboard.writeText(text).then(() => {
-        alert("Identity copied!");
+      // Visual feedback
+      copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      setTimeout(() => {
+        copyBtn.innerHTML = '<i class="fas fa-copy"></i> Copy All';
+      }, 2000);
+    }).catch(() => {
+      alert('Failed to copy. Manual copy below:\n\n' + text);
     });
-});
+  }
 
-// ---------------- Random Item Utility ----------------
-function randomItem(arr){
-    return arr[Math.floor(Math.random() * arr.length)];
-}
+  // Event listeners
+  generateBtn.addEventListener('click', generateNew);
+  copyBtn.addEventListener('click', copyToClipboard);
 
-// ---------------- Identity Generator ----------------
-function generateIdentity(){
-
-    const gender = document.getElementById("gender").value;
-    const country = document.getElementById("country").value;
-
-    let firstName =
-        gender === "female"
-        ? randomItem(femaleNames)
-        : gender === "male"
-        ? randomItem(maleNames)
-        : randomItem(maleNames.concat(femaleNames));
-
-    let lastName = randomItem(surnames);
-    let street = randomItem(streets);
-    let domain = randomItem(domains);
-
-    const fullName = `${firstName} ${lastName}`;
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
-    const address = `${Math.floor(Math.random()*9999)+1} ${street}`;
-    const phone = `+1${Math.floor(Math.random()*9000000000)+1000000000}`;
-    const username = `${firstName.toLowerCase()}${Math.floor(Math.random()*1000)}`;
-    const password = Math.random().toString(36).slice(-8);
-    const creditCard =
-        `${Math.floor(Math.random()*9000)+1000}-` +
-        `${Math.floor(Math.random()*9000)+1000}-` +
-        `${Math.floor(Math.random()*9000)+1000}-` +
-        `${Math.floor(Math.random()*9000)+1000}`;
-
-    document.getElementById("name").innerText = fullName;
-    document.getElementById("countryText").innerText =
-        country === "any" ? "Unknown Country" : country;
-    document.getElementById("address").innerText = address;
-    document.getElementById("email").innerText = email;
-    document.getElementById("phone").innerText = phone;
-    document.getElementById("username").innerText = username;
-    document.getElementById("password").innerText = password;
-    document.getElementById("creditCard").innerText = creditCard;
-}
-
-// ---------------- Generate Button ----------------
-document.getElementById("generate").addEventListener("click", generateIdentity);
+  // Initial generation on page load
+  window.addEventListener('DOMContentLoaded', generateNew);
+})(window);
