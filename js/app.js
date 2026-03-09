@@ -1,6 +1,4 @@
-// ---------------- Back & Exit Buttons ----------------
-
-// Back Button (offline safe)
+// ---------------- Back Button ----------------
 document.getElementById("backBtn").addEventListener("click", () => {
     if (window.history.length > 1) {
         window.history.back();
@@ -9,67 +7,22 @@ document.getElementById("backBtn").addEventListener("click", () => {
     }
 });
 
-
-        // Try browser close
-        try {
-            window.open('', '_self').close();
-        } catch(e) {}
-
-        // Offline fallback exit screen
-        document.body.innerHTML = `
-        <div style="
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            background:#0f172a;
-            color:white;
-            font-family:Arial;
-            text-align:center;
-        ">
-            <div>
-                <h1>Application Closed</h1>
-                <p>You can close this tab safely.</p>
-                <button onclick="location.reload()" style="
-                    padding:12px 24px;
-                    margin-top:15px;
-                    border:none;
-                    border-radius:8px;
-                    background:#7C3AED;
-                    color:white;
-                    font-size:16px;
-                    cursor:pointer;
-                ">Restart App</button>
-            </div>
-        </div>`;
-    }
-
-});
-
-
 // ---------------- Copy Identity ----------------
 document.getElementById("copyBtn").addEventListener("click", () => {
-
     const card = document.getElementById("identityCard");
-
     let text = "";
-
     card.querySelectorAll("h2, p").forEach(el => {
         text += el.innerText + "\n";
     });
-
     navigator.clipboard.writeText(text).then(() => {
         alert("Identity copied!");
     });
-
 });
-
 
 // ---------------- Random Item Utility ----------------
 function randomItem(arr){
     return arr[Math.floor(Math.random() * arr.length)];
 }
-
 
 // ---------------- Identity Generator ----------------
 function generateIdentity(){
@@ -89,48 +42,27 @@ function generateIdentity(){
     let domain = randomItem(domains);
 
     const fullName = `${firstName} ${lastName}`;
-
-    const email =
-        `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
-
-    const address =
-        `${Math.floor(Math.random()*9999)+1} ${street}`;
-
-    const phone =
-        `+1${Math.floor(Math.random()*9000000000)+1000000000}`;
-
-    const username =
-        `${firstName.toLowerCase()}${Math.floor(Math.random()*1000)}`;
-
-    const password =
-        Math.random().toString(36).slice(-8);
-
+    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+    const address = `${Math.floor(Math.random()*9999)+1} ${street}`;
+    const phone = `+1${Math.floor(Math.random()*9000000000)+1000000000}`;
+    const username = `${firstName.toLowerCase()}${Math.floor(Math.random()*1000)}`;
+    const password = Math.random().toString(36).slice(-8);
     const creditCard =
         `${Math.floor(Math.random()*9000)+1000}-` +
         `${Math.floor(Math.random()*9000)+1000}-` +
         `${Math.floor(Math.random()*9000)+1000}-` +
         `${Math.floor(Math.random()*9000)+1000}`;
 
-    // Update UI
     document.getElementById("name").innerText = fullName;
-
     document.getElementById("countryText").innerText =
         country === "any" ? "Unknown Country" : country;
-
     document.getElementById("address").innerText = address;
-
     document.getElementById("email").innerText = email;
-
     document.getElementById("phone").innerText = phone;
-
     document.getElementById("username").innerText = username;
-
     document.getElementById("password").innerText = password;
-
     document.getElementById("creditCard").innerText = creditCard;
-
 }
-
 
 // ---------------- Generate Button ----------------
 document.getElementById("generate").addEventListener("click", generateIdentity);
