@@ -10,17 +10,6 @@ document.getElementById("backBtn").addEventListener("click", () => {
 });
 
 
-// Exit Button (Real exit + fallback)
-document.getElementById("exitBtn").addEventListener("click", () => {
-
-    if(confirm("Are you sure you want to exit?")){
-
-        // Android WebView real exit
-        if (typeof Android !== "undefined" && Android.exitApp) {
-            Android.exitApp();
-            return;
-        }
-
         // Try browser close
         try {
             window.open('', '_self').close();
