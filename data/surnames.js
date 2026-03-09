@@ -1,19 +1,27 @@
-const surnames = [
-"Smith","Johnson","Williams","Brown","Jones","Miller","Davis","Garcia","Rodriguez","Wilson",
-"Martinez","Anderson","Taylor","Thomas","Hernandez","Moore","Martin","Jackson","Thompson","White",
-"Lopez","Lee","Gonzalez","Harris","Clark","Lewis","Robinson","Walker","Perez","Hall",
-"Young","Allen","Sanchez","Wright","King","Scott","Green","Baker","Adams","Nelson",
-"Hill","Ramirez","Campbell","Mitchell","Roberts","Carter","Phillips","Evans","Turner","Torres",
-"Parker","Collins","Edwards","Stewart","Flores","Morris","Nguyen","Murphy","Rivera","Cook",
-"Rogers","Morgan","Peterson","Cooper","Reed","Bailey","Bell","Gomez","Kelly","Howard",
-"Ward","Cox","Diaz","Richardson","Wood","Watson","Brooks","Bennett","Gray","James",
-"Reyes","Cruz","Hughes","Price","Myers","Long","Foster","Sanders","Ross","Morales",
-"Powell","Sullivan","Russell","Ortiz","Jenkins","Gutierrez","Perry","Butler","Barnes","Fisher",
-"Henderson","Coleman","Simmons","Patterson","Jordan","Reynolds","Hamilton","Graham","Kim","Gonzales",
-"Alexander","Ramos","Wallace","Griffin","West","Cole","Hayes","Chavez","Gibson","Bryant",
-"Ellis","Stevens","Murray","Ford","Marshall","Owens","McDonald","Harrison","Ruiz","Kennedy",
-"Wells","Alvarez","Woods","Mendoza","Castillo","Olson","Webb","Washington","Tucker","Freeman",
-"Burns","Henry","Vasquez","Snyder","Simpson","Crawford","Jimenez","Porter","Mason","Shaw",
-"Gordon","Wagner","Hunter","Romero","Hicks","Dixon","Hunt","Palmer","Robertson","Black",
-// ... continue until ~500–1000 surnames
-];
+// 1000 last names with prefixes & suffixes
+var lastNames = (function() {
+  const base = [
+    "Smith", "Johnson", "Williams", "Brown", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+    "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin",
+    "Lee", "Perez", "Thompson", "White", "Harris", "Sanchez", "Clark", "Ramirez", "Lewis", "Robinson",
+    "Walker", "Young", "Allen", "King", "Wright", "Scott", "Torres", "Nguyen", "Hill", "Flores",
+    "Green", "Adams", "Nelson", "Baker", "Hall", "Rivera", "Campbell", "Mitchell", "Carter", "Roberts",
+    "Gomez", "Phillips", "Evans", "Turner", "Diaz", "Parker", "Cruz", "Edwards", "Collins", "Reyes",
+    "Stewart", "Morris", "Morales", "Murphy", "Cook", "Rogers", "Gutierrez", "Ortiz", "Morgan", "Cooper",
+    "Peterson", "Bailey", "Reed", "Kelly", "Howard", "Ramos", "Kim", "Cox", "Ward", "Richardson",
+    "Watson", "Brooks", "Chavez", "Wood", "James", "Bennett", "Gray", "Mendoza", "Ruiz", "Hughes",
+    "Price", "Alvarez", "Castillo", "Sanders", "Patel", "Myers", "Long", "Ross", "Foster", "Jimenez"
+  ]; // 100 base
+
+  const prefixes = ["", "Mc", "Mac", "O'", "De ", "Van ", "Von ", "St. ", "Le ", "La "];
+  const suffixes = ["", " Jr.", " Sr.", " II", " III", " IV", " Esq.", " PhD", " MD", " DDS"];
+
+  const result = [];
+  for (let i = 0; i < 1000; i++) {
+    const baseIdx = i % base.length;
+    const prefixIdx = Math.floor(i / base.length) % prefixes.length;
+    const suffixIdx = Math.floor(i / (base.length * prefixes.length)) % suffixes.length;
+    result.push(prefixes[prefixIdx] + base[baseIdx] + suffixes[suffixIdx]);
+  }
+  return result;
+})();
