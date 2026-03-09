@@ -1,1 +1,8 @@
-
+@media(max-width:600px){
+    .controls {
+        flex-direction: column;
+    }
+    button, select {
+        width: 100%;
+    }
+}
