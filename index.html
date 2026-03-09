@@ -1,65 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Advanced Fake Identity Generator</title>
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/animations.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Advanced Fake Identity Generator</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+  <div class="container">
+    <!-- Header with logo -->
+    <header class="header">
+      <div class="logo">
+        <i class="fas fa-id-card"></i>
+        <span>FakeID</span>
+      </div>
+      <p class="tagline">Advanced • Random • Secure</p>
+    </header>
 
-<header>
-    <img src="assets/logo.png" alt="Logo" class="logo">
-    <h1>Advanced Fake Identity Generator</h1>
-</header>
+    <!-- Main identity card -->
+    <main>
+      <div class="card glass" id="identityCard">
+        <div class="card-header">
+          <h2>Random Identity</h2>
+          <i class="fas fa-shield-alt shield-icon"></i>
+        </div>
 
-<!-- Sticky Top-Right Buttons -->
-<div class="sticky-buttons">
-    <button id="backBtn">⬅ Back</button>
-</div>
+        <div class="identity-details" id="identityDetails">
+          <!-- Populated by JavaScript -->
+        </div>
 
-<div class="container">
-    <div class="controls">
-        <select id="gender">
-            <option value="any">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-        </select>
+        <div class="card-footer">
+          <button class="btn primary" id="generateBtn">
+            <i class="fas fa-sync-alt"></i> Generate New
+          </button>
+          <button class="btn secondary" id="copyBtn">
+            <i class="fas fa-copy"></i> Copy All
+          </button>
+        </div>
+      </div>
 
-        <select id="country">
-            <option value="any">Select Country</option>
-            <option>USA</option>
-            <option>UK</option>
-            <option>Canada</option>
-            <option>Germany</option>
-        </select>
+      <!-- Extra info -->
+      <div class="info-note">
+        <i class="fas fa-lock"></i> For testing & entertainment only. No real data.
+      </div>
+    </main>
+  </div>
 
-        <button id="generate">Generate Identity</button>
-    </div>
-
-    <div class="card" id="identityCard">
-        <h2 id="name">Name</h2>
-        <p id="countryText">Country</p>
-        <p id="address">Address</p>
-        <p id="email">Email</p>
-        <p id="phone">Phone</p>
-        <p id="username">Username</p>
-        <p id="password">Password</p>
-        <p id="creditCard">Credit Card</p>
-        <button id="copyBtn">Copy Identity</button>
-    </div>
-</div>
-
-<!-- Data -->
-<script src="data/names.js"></script>
-<script src="data/surnames.js"></script>
-<script src="data/streets.js"></script>
-<script src="data/domains.js"></script>
-
-<!-- JS -->
-<script src="js/app.js"></script>
-
+  <!-- JavaScript files (order matters) -->
+  <script src="data/names.js"></script>
+  <script src="data/surnames.js"></script>
+  <script src="data/streets.js"></script>
+  <script src="data/domains.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/identity.js"></script>
+  <script src="js/generator.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
