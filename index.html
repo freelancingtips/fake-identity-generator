@@ -13,6 +13,12 @@
 <header>
     <img src="assets/logo.png" alt="Logo" class="logo">
     <h1>Advanced Fake Identity Generator</h1>
+
+    <!-- Back & Exit Buttons -->
+    <div class="header-buttons">
+        <button id="backBtn">⬅ Back</button>
+        <button id="exitBtn">❌ Exit</button>
+    </div>
 </header>
 
 <div class="container">
@@ -60,6 +66,20 @@
 <script src="js/generator.js"></script>
 <script src="js/identity.js"></script>
 <script src="js/app.js"></script>
+
+<script>
+// Back Button
+document.getElementById("backBtn").addEventListener("click", () => {
+    window.history.back();
+});
+
+// Exit Button
+document.getElementById("exitBtn").addEventListener("click", () => {
+    if(confirm("Are you sure you want to exit?")){
+        window.close(); // or redirect: window.location.href = "https://your-homepage.com";
+    }
+});
+</script>
 
 </body>
 </html>
