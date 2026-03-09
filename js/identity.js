@@ -1,42 +1,32 @@
-function generateIdentity(){
-    const gender = document.getElementById("gender").value;
-    const countrySelect = document.getElementById("country").value;
+// Identity class / factory
 
-    const name = generateName(gender);
-    const country = (countrySelect==="any") ? randomItem(["USA","UK","Canada","Germany"]) : countrySelect;
-    const address = generateAddress();
-    const email = generateEmail(name);
-    const phone = generatePhone();
-    const username = generateUsername(name);
-    const password = generatePassword();
-    const creditCard = generateCreditCard();
+(function(global) {
+  function Identity(data) {
+    this.firstName = data.firstName || '';
+    this.lastName = data.lastName || '';
+    this.gender = data.gender || '';
+    this.dob = data.dob || null;
+    this.address = data.address || '';
+    this.phone = data.phone || '';
+    this.email = data.email || '';
+    this.idNumber = data.idNumber || '';
+  }
 
-    return {name, country, address, email, phone, username, password, creditCard};
-}
+  Identity.prototype.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`;
+  };
 
-function displayIdentity(identity){
-    document.getElementById("name").innerText = identity.name;
-    document.getElementById("country").innerText = identity.country;
-    document.getElementById("address").innerText = identity.address;
-    document.getElementById("email").innerText = identity.email;
-    document.getElementById("phone").innerText = identity.phone;
-    document.getElementById("username").innerText = identity.username;
-    document.getElementById("password").innerText = identity.password;
-    document.getElementById("creditCard").innerText = identity.creditCard;
-}
+  Identity.prototype.toObject = function() {
+    return {
+      fullName: this.getFullName(),
+      gender: this.gender,
+      dob: this.dob,
+      address: this.address,
+      phone: this.phone,
+      email: this.email,
+      idNumber: this.idNumber
+    };
+  };
 
-function copyIdentity(){
-    const text = [
-        document.getElementById("name").innerText,
-        document.getElementById("country").innerText,
-        document.getElementById("address").innerText,
-        document.getElementById("email").innerText,
-        document.getElementById("phone").innerText,
-        document.getElementById("username").innerText,
-        document.getElementById("password").innerText,
-        document.getElementById("creditCard").innerText
-    ].join("\n");
-
-    navigator.clipboard.writeText(text);
-    alert("Identity copied!");
-}
+  global.Identity = Identity;
+})(window);
