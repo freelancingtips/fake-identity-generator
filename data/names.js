@@ -1,32 +1,28 @@
-const maleNames = [
-"James","John","Robert","Michael","William","David","Richard","Charles","Joseph","Thomas",
-"Christopher","Daniel","Paul","Mark","Donald","George","Kenneth","Steven","Edward","Brian",
-"Ronald","Anthony","Kevin","Jason","Matthew","Gary","Timothy","Jose","Larry","Jeffrey","Frank",
-"Scott","Eric","Stephen","Andrew","Raymond","Gregory","Joshua","Jerry","Dennis","Walter",
-"Patrick","Peter","Harold","Douglas","Henry","Carl","Arthur","Ryan","Roger","Joe",
-"Juan","Jack","Albert","Jonathan","Justin","Terry","Gerald","Keith","Samuel","Willie",
-"Ralph","Lawrence","Nicholas","Roy","Benjamin","Bruce","Brandon","Adam","Harry","Fred",
-"Wayne","Billy","Steve","Louis","Jeremy","Aaron","Randy","Howard","Eugene","Carlos",
-"Russell","Bobby","Victor","Martin","Ernest","Phillip","Todd","Jesse","Craig","Alan",
-"Shawn","Clarence","Sean","Philip","Chris","Johnny","Earl","Jimmy","Antonio","Danny",
-"Bryan","Tony","Luis","Mike","Stanley","Leonard","Nathan","Dale","Manuel","Rodney",
-"Curtis","Norman","Allen","Marvin","Vincent","Glenn","Jeffery","Travis","Jeff","Chad",
-"Jacob","Lee","Melvin","Alfred","Kyle","Francis","Bradley","Jesus","Herbert","Frederick",
-"Ray","Joel","Edwin","Don","Eddie","Ricky","Troy","Randall","Barry","Alexander",
-"Bernard","Mario","Leroy","Francisco","Marcus","Micheal","Theodore","Clifford","Miguel","Oscar",
-// ... continue pattern until ~1500 names
-];
+// 1000 first names with variations
+var firstNames = (function() {
+  const base = [
+    "James", "Mary", "John", "Patricia", "Robert", "Jennifer", "Michael", "Linda", "William", "Elizabeth",
+    "David", "Barbara", "Richard", "Susan", "Joseph", "Jessica", "Thomas", "Sarah", "Charles", "Karen",
+    "Christopher", "Nancy", "Daniel", "Lisa", "Matthew", "Betty", "Anthony", "Margaret", "Donald", "Sandra",
+    "Mark", "Ashley", "Paul", "Kimberly", "Steven", "Emily", "Andrew", "Donna", "Kenneth", "Michelle",
+    "George", "Dorothy", "Joshua", "Carol", "Kevin", "Amanda", "Brian", "Melissa", "Edward", "Deborah",
+    "Ronald", "Stephanie", "Timothy", "Rebecca", "Jason", "Sharon", "Jeffrey", "Laura", "Ryan", "Cynthia",
+    "Jacob", "Kathleen", "Gary", "Amy", "Nicholas", "Shirley", "Eric", "Angela", "Jonathan", "Helen",
+    "Stephen", "Anna", "Larry", "Brenda", "Justin", "Pamela", "Scott", "Nicole", "Brandon", "Samantha",
+    "Benjamin", "Katherine", "Samuel", "Emma", "Gregory", "Ruth", "Alexander", "Christine", "Patrick", "Catherine",
+    "Frank", "Debra", "Raymond", "Rachel", "Jack", "Carolyn", "Henry", "Janet", "Peter", "Maria"
+  ]; // 100 base names
 
-const femaleNames = [
-"Mary","Patricia","Jennifer","Linda","Elizabeth","Susan","Jessica","Sarah","Karen","Nancy",
-"Lisa","Betty","Margaret","Sandra","Ashley","Kimberly","Emily","Donna","Michelle","Dorothy",
-"Carol","Amanda","Melissa","Deborah","Stephanie","Rebecca","Laura","Sharon","Cynthia","Kathleen",
-"Helen","Amy","Shirley","Angela","Anna","Brenda","Pamela","Nicole","Ruth","Katherine",
-"Samantha","Christine","Emma","Catherine","Debra","Virginia","Rachel","Carolyn","Janet","Maria",
-"Heather","Diane","Julie","Joyce","Victoria","Kelly","Christina","Lauren","Joan","Evelyn",
-"Judith","Megan","Cheryl","Andrea","Hannah","Jacqueline","Martha","Gloria","Teresa","Ann",
-"Sara","Madison","Frances","Kathryn","Janice","Jean","Abigail","Alice","Julia","Judy",
-"Grace","Denise","Amber","Doris","Marilyn","Beverly","Danielle","Theresa","Sophia","Marie",
-"Diana","Brittany","Natalie","Isabella","Charlotte","Rose","Alexis","Kayla","Lori","Jane",
-// ... continue pattern until ~1500 names
-];
+  const variants = [
+    "", " Marie", " Ann", " Lee", " Ray", " Lynn", " Jo", " Mae", " Rose", " James",
+    " Michael", " David", " John", " Robert", " William", " Charles", " Joseph", " Thomas", " Christopher", " Daniel"
+  ]; // 20 variants
+
+  const result = [];
+  for (let i = 0; i < 1000; i++) {
+    const baseIdx = i % base.length;
+    const variantIdx = Math.floor(i / base.length) % variants.length;
+    result.push(base[baseIdx] + variants[variantIdx]);
+  }
+  return result;
+})();
