@@ -1,1 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+}
+
+.logo {
+    height: 50px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+select, button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    background: linear-gradient(135deg, #7c3aed, #ec4899);
+    color: white;
+    cursor: pointer;
+}
+
+.card {
+    margin-top: 20px;
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+}
