@@ -1,13 +1,22 @@
+/* Smooth hover animations */
 .card {
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .card:hover {
     transform: scale(1.02);
     box-shadow: 0 0 20px rgba(124,58,237,0.5);
 }
+
 button {
     transition: all 0.2s ease-in-out;
 }
+
 button:hover {
     transform: scale(1.05);
+}
+
+/* Smooth scroll for mobile */
+html {
+    scroll-behavior: smooth;
 }
