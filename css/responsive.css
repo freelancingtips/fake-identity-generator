@@ -1,8 +1,46 @@
-@media(max-width:600px){
+/* Media Queries for Mobile */
+@media(max-width: 1024px){
     .controls {
         flex-direction: column;
     }
-    button, select {
+    .controls select,
+    .controls button {
         width: 100%;
+    }
+
+    .card {
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+}
+
+@media(max-width: 600px){
+    .controls {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .controls select,
+    .controls button {
+        width: 100%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+        font-size: 13px;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    .logo {
+        height: 40px;
     }
 }
