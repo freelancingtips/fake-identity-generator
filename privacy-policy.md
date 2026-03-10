@@ -1,51 +1,58 @@
-# Privacy Policy – Fake Identity Generator
+# Privacy Policy – Advanced Fake Identity Generator
 
-Welcome to **Fake Identity Generator**. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our mobile application.
+**Effective Date:** March 10, 2026
+
+## Introduction
+Advanced Fake Identity Generator (“we”, “our”, “the app”) respects your privacy. This policy explains how we handle your data when you use the app. By using the app, you agree to this Privacy Policy.
+
+---
 
 ## 1. Information We Collect
-We may collect the following information to provide the best experience:
 
-- Device information (model, OS version)
-- Usage data (app activity, features used)
+- **No personal data collected:** The app **does not collect, store, or transmit any personal information**.  
+- **Generated data:** Names, addresses, emails, phone numbers, and other identities created using the app are **random and fictional**.  
+- **Device information:** We may access **basic device info** for app functionality (e.g., offline caching). This is **not linked to any personal data**.
 
-## 2. Permissions
-Our app may request the following permissions:
+---
 
-### 📷 Camera
-We request camera access to let you take photos or videos within the app when required by web content.
+## 2. Use of Information
 
-## 3. How We Use Your Information
-We use the information we collect to:
+- The app uses **local device storage** (offline cache) to speed up loading and allow offline use.  
+- Generated fake identities are **stored temporarily in memory** while the app is open. Nothing is sent to servers.
 
-- Provide and maintain the app
-- Improve user experience and app functionality
-- Display relevant advertisements (if applicable)
-- Send push notifications (if enabled)
-- Respond to support requests
+---
 
-## 4. Third-Party Services
-We may use third-party services that collect information, including:
+## 3. Third-Party Services
 
-- **Google Play Services** – for analytics and app functionality
+- The app **does not use any analytics, ads, or third-party trackers**.  
+- No external servers are contacted.
+
+---
+
+## 4. Permissions
+
+- **Storage/Clipboard:** The app may request permission to **copy identities** to the clipboard.  
+- **Offline functionality:** The app uses browser caching or service workers to allow offline usage.
+
+---
 
 ## 5. Data Security
-We implement commercially acceptable measures to protect your data from unauthorized access.
 
-## 6. Children's Privacy
-Our app is **not intended for children under 13**. We do not knowingly collect personal information from children under 13.
+- Generated data is **never transmitted to the internet**.  
+- All operations happen **locally on your device**.  
+- We **cannot access** the identities you create.
 
-## 7. Your Rights
-Depending on your location, you may have rights regarding your personal data, including:
+---
 
-- Access
-- Correction
-- Deletion
-- Data portability
+## 6. Children’s Privacy
 
-## 8. Changes to This Privacy Policy
-We may update this Privacy Policy from time to time. Changes will be posted on this page.
+- This app is **not intended for children under 13**.  
+- We do not knowingly collect personal information from children.
 
-## 9. Contact Us
-For questions about this Privacy Policy, contact us through the app's contact feature.
+---
 
-**By using Fake Identity Generator, you agree to this Privacy Policy.**
+## 7. Changes to This Policy
+
+We may update this policy occasionally. Updates will be **reflected in the app or on the official website**. Users are encouraged to check for updates periodically.
+
+---
