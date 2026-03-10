@@ -3,7 +3,7 @@
 **Effective Date:** March 10, 2026
 
 ## Introduction
-Advanced Fake Identity Generator (“we”, “our”, “the app”) respects your privacy. This policy explains how we handle your data when you use the app. By using the app, you agree to this Privacy Policy.
+Advanced Fake Identity Generator respects your privacy. This policy explains how we handle your data when you use the app. By using the app, you agree to this Privacy Policy.
 
 ---
 
